@@ -17,6 +17,19 @@
             #binding-cells = <0>;
             continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
         };
+        cmt: custom_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CUSTOM_MOD_TAP";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            retro-tap;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <50>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -30,10 +43,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB     &kp Q  &kp W  &kp F      &kp P         &kp G                 &kp J    &kp L         &kp U      &kp Y    &kp SEMI  &kp BSPC
-&kp ESC     &kp A  &kp R  &kp S      &mt LSHIFT T  &kp D                 &kp H    &mt LSHIFT N  &kp E      &kp I    &kp O     &kp SQT
-&sk LSHIFT  &kp Z  &kp X  &kp C      &kp V         &kp B                 &kp K    &kp M         &kp COMMA  &kp DOT  &kp FSLH  &dcw
-                          &kp LCTRL  &mo 1         &mt LEFT_GUI SPACE    &kp RET  &mo 2         &kp RALT
+&kp TAB     &kp Q  &kp W  &kp F      &kp P         &kp G                  &kp J    &kp L         &kp U      &kp Y    &kp SEMI  &kp BSPC
+&kp ESC     &kp A  &kp R  &kp S      &cmt LSHFT T  &kp D                  &kp H    &cmt LSHFT N  &kp E      &kp I    &kp O     &kp SQT
+&sk LSHIFT  &kp Z  &kp X  &kp C      &kp V         &kp B                  &kp K    &kp M         &kp COMMA  &kp DOT  &kp FSLH  &dcw
+                          &kp LCTRL  &mo 1         &cmt LEFT_GUI SPACE    &kp RET  &mo 2         &kp RALT
             >;
         };
 
