@@ -11,11 +11,11 @@
 
 / {
     behaviors {
-        caps_word: caps_word {
+        dcw: dcw {
             compatible = "zmk,behavior-caps-word";
-            label = "CAPS_WORD";
+            label = "DEFAULT_CAPS_WORD";
             #binding-cells = <0>;
-            continue-list = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z UNDERSCORE MINUS NUMBER_1 NUMBER_2 NUMBER_3 NUMBER_4 NUMBER_5 NUMBER_6 NUMBER_7 NUMBER_8 NUMBER_9 NUMBER_0>;
+            continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
         };
     };
 
@@ -32,7 +32,7 @@
             bindings = <
 &kp TAB     &kp Q  &kp W  &kp F      &kp P         &kp G                 &kp J    &kp L         &kp U      &kp Y    &kp SEMI  &kp BSPC
 &kp ESC     &kp A  &kp R  &kp S      &mt LSHIFT T  &kp D                 &kp H    &mt LSHIFT N  &kp E      &kp I    &kp O     &kp SQT
-&sk LSHIFT  &kp Z  &kp X  &kp C      &kp V         &kp B                 &kp K    &kp M         &kp COMMA  &kp DOT  &kp FSLH  &caps_word
+&sk LSHIFT  &kp Z  &kp X  &kp C      &kp V         &kp B                 &kp K    &kp M         &kp COMMA  &kp DOT  &kp FSLH  &dcw
                           &kp LCTRL  &mo 1         &mt LEFT_GUI SPACE    &kp RET  &mo 2         &kp RALT
             >;
         };
@@ -45,10 +45,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &trans        &trans     &kp UP        &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp BACKSLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &kp BSPC
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT   &kp DOWN      &kp RIGHT         &kp TAB              &kp NUMBER_0   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-&kp LSHFT  &kp LEFT_GUI  &kp LCTRL  &kp LEFT_ALT  &kp SPACE         &kp LEFT_SHIFT       &kp RCTRL      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &none
-                                    &kp LGUI      &trans            &kp SPACE            &kp RET        &mo 3         &kp RALT
+&kp TAB    &trans        &trans     &kp UP        &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp DELETE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &kp BSPC
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT   &kp DOWN      &kp RIGHT         &kp TAB              &kp NUMBER_0  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
+&kp LSHFT  &kp LEFT_GUI  &kp LCTRL  &kp LEFT_ALT  &kp SPACE         &kp LEFT_SHIFT       &kp RCTRL     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &none
+                                    &kp LGUI      &trans            &kp SPACE            &kp RET       &mo 3         &kp RALT
             >;
         };
 
