@@ -11,9 +11,9 @@
 
 / {
     behaviors {
-        dcw: dcw {
+        dcw: default_caps_word {
             compatible = "zmk,behavior-caps-word";
-            label = "DEFAULT_CAPS_WORD";
+            label = "Default Caps Word";
             #binding-cells = <0>;
             continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
         };
@@ -26,9 +26,19 @@
 
             #binding-cells = <2>;
             retro-tap;
-            tapping-term-ms = <120>;
-            quick-tap-ms = <50>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <100>;
             flavor = "tap-preferred";
+        };
+        hos: hold_or_sticky {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Hold or Sticky";
+            bindings =
+                <&kp>,
+                <&sk>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -43,10 +53,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB     &kp Q  &kp W  &kp F      &kp P         &kp G                  &kp J    &kp L         &kp U      &kp Y    &kp SEMI  &kp BSPC
-&kp ESC     &kp A  &kp R  &kp S      &cmt LSHFT T  &kp D                  &kp H    &cmt LSHFT N  &kp E      &kp I    &kp O     &kp SQT
-&sk LSHIFT  &kp Z  &kp X  &kp C      &kp V         &kp B                  &kp K    &kp M         &kp COMMA  &kp DOT  &kp FSLH  &dcw
-                          &kp LCTRL  &mo 1         &cmt LEFT_GUI SPACE    &kp RET  &mo 2         &kp RALT
+&kp TAB           &kp Q  &kp W  &kp F      &kp P         &kp G                  &kp J         &kp L         &kp U      &kp Y    &kp SEMI  &kp BSPC
+&kp ESC           &kp A  &kp R  &kp S      &cmt LSHFT T  &cmt LCTRL D           &cmt LCTRL H  &cmt LSHFT N  &kp E      &kp I    &kp O     &kp SQT
+&hos LSHFT LSHFT  &kp Z  &kp X  &kp C      &kp V         &kp B                  &kp K         &kp M         &kp COMMA  &kp DOT  &kp FSLH  &dcw
+                                &kp LCTRL  &mo 1         &cmt LEFT_GUI SPACE    &kp RET       &mo 2         &kp RALT
             >;
         };
 
